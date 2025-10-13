@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const About = () => {
+const produceGuide = () => {
   return (
     <View>
-      <Text>About</Text>
+      <Text>produceGuide</Text>
     </View>
   )
 }
 
-export default About
+export default produceGuide
 
 const styles = StyleSheet.create({})

@@ -1,0 +1,33 @@
+Project Overview:
+A web app/ mobile app that helps users track the freshness of fruits and vegetables. In this, users can manually add produce items, specifying item name and purchase date.
+
+Using this the app displays an estimated “best before date” and the time left before that date.
+
+The app would also have recommendation for recipes that could be used with the currently entered produce, it would also show storage tips, like ideal temperature.
+
+Planned Features:
+-Manual entry(type + date purchased(quick option for todays date))
+-Photo entry
+-Barcode entry
+-Voice entry
+
+-Freshness Timer / Prediction (Using known shelf life data)
+Optionally adjusting based on storage conditions
+-Visual countdown and alerts before spoilage
+-Recipe section containing recipes that use the already bought produce
+
+-Daily Reminders to notify user when an item is about to go bad
+Suggest “use soon” recipes, with an option to exclude stuff like meat, or gluten so that it doesn’t show that to the user if they don’t want that.
+
+-A produce guide section, it shows the average shelf life for common fruits / veggies
+-Storage tips in the same place as produce guide and all produce entries.
+
+-Machine Learning image freshness estimation
+-???Fridge integration???
+-Waste Analytics to show users how much food they are saving.
+
+Tech Stack:
+Overall Framework (App): React Native / Next.js for website(maybe)
+Image Analysis: TensorFlow Lite / OpenCV / custom ML model (maybe maybe)
+Notifications: Local push + calendar integration
+Design: Figma
