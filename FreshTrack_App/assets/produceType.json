@@ -1,0 +1,8 @@
+{
+    "produce":[
+    { "id": 1, "name": "Apple", "category": "fruit", "bestByDays": 30 },
+    { "id": 2, "name": "Banana", "category": "fruit", "bestByDays": 5 },
+    { "id": 3, "name": "Carrot", "category": "vegetable", "bestByDays": 20 },
+    { "id": 4, "name": "Lettuce", "category": "vegetable", "bestByDays": 7 }
+    ]
+}

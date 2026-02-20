@@ -20,7 +20,7 @@ export default function TabLayout() {
           title: 'Guide',
         }}
       />
-            <Tabs.Screen
+      <Tabs.Screen
         name="recipes"
         options={{
           title: 'Recipes',
