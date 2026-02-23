@@ -2,13 +2,14 @@ import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
 import React, { useMemo, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import produceType from "../../assets/produceType.json"
-import { ProduceType } from '@/typeScriptComponents/ProduceType'
-import storedProduce from "../../assets/storedProduce.json"
 import useFridge from '@/typeScriptComponents/UseFridge'
+import { StoredProduce } from '@/typeScriptComponents/StoredProduce'
+import {useRouter} from 'expo-router'
 
-const addProduce = () => {
+const AddProduce = () => {
 
-  const { itemId } = useLocalSearchParams<{ itemId?: string }>()
+  const params = useLocalSearchParams<{ itemId?: string }>();
+  const itemId = Number(params.itemId);
 
   const produce = useMemo(() => {
     if (!itemId) return null
@@ -19,10 +20,18 @@ const addProduce = () => {
   }, [itemId])
   
   const currentTime : Date = new Date();
+  const produceToStore : StoredProduce = {
+    id: 1,
+    produceTypeId: itemId,
+    produceCount: 1,
+    addedAt: Date.now(),
+
+  }
 
   const [produceCount, setProduceCount] = useState('1');
-
   const { items, add, remove, update } = useFridge();
+
+  const router = useRouter();
 
   if (!produce) {
     return (
@@ -40,17 +49,28 @@ const addProduce = () => {
       <Text>Number of items:</Text>
       <TextInput 
       onChangeText = {newProduceCount=> setProduceCount(newProduceCount)}
-      defaultValue = {produceCount}
+      value = {produceCount}
       />
-      <Button
-        onPress={() => {
-        console.log('You tapped the button!');}}
-        title="Add to Fridge"
+    <Button
+      title="Add to Fridge"
+      onPress={async () => {
+      if (!itemId) return;
+      
+      const newItem: StoredProduce = {
+        id: Date.now(), // simple unique id
+        produceTypeId: produce.id,
+        produceCount: Number(produceCount) || 1,
+        addedAt: Date.now(),
+    };
+
+    await add(newItem);
+    router.push("/fridge");
+  }}
 />
     </View>
   )
 }
 
-export default addProduce
+export default AddProduce
 
 const styles = StyleSheet.create({})

@@ -20,7 +20,7 @@ export async function saveItems(items : StoredProduce[]) {
 }
 export async function addItem(item : StoredProduce) {
   const items = await getItems();
-
+  console.log("WRITING ITEMS:", items);
   items.push(item);
 
   await saveItems(items);
