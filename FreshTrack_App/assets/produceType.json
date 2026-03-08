@@ -1,8 +1,44 @@
 {
     "produce":[
-    { "id": 1, "name": "Apple", "category": "fruit", "bestByDays": 30 },
-    { "id": 2, "name": "Banana", "category": "fruit", "bestByDays": 5 },
-    { "id": 3, "name": "Carrot", "category": "vegetable", "bestByDays": 20 },
-    { "id": 4, "name": "Lettuce", "category": "vegetable", "bestByDays": 7 }
+    { 
+        "id": 1, 
+        "name": "Apple", 
+        "category": "fruit", 
+        "bestByDays": 30, 
+        "idealStorageConditions": "Something something yada yada",
+        "commonUses": "common uses for the produce in recipe and other fields",
+        "interestingFact": "An interesting fact about the item",
+        "whatNotToDo": "What to avoid doing in storage or usage, like if its poisonous in large dose, or if its mixed with some everyday item"
+    },
+    { 
+        "id": 2, 
+        "name": "Banana", 
+        "category": "fruit", 
+        "bestByDays": 5,
+        "idealStorageConditions": "Something something yada yada",
+        "commonUses": "common uses for the produce in recipe and other fields",
+        "interestingFact": "An interesting fact about the item",
+        "whatNotToDo": "What to avoid doing in storage or usage, like if its poisonous in large dose, or if its mixed with some everyday item"
+    },
+    { 
+        "id": 3, 
+        "name": "Carrot", 
+        "category": "vegetable", 
+        "bestByDays": 20,
+        "idealStorageConditions": "Something something yada yada",
+        "commonUses": "common uses for the produce in recipe and other fields",
+        "interestingFact": "An interesting fact about the item",
+        "whatNotToDo": "What to avoid doing in storage or usage, like if its poisonous in large dose, or if its mixed with some everyday item"
+    },
+    { 
+        "id": 4, 
+        "name": "Lettuce", 
+        "category": "vegetable", 
+        "bestByDays": 7,
+        "idealStorageConditions": "Something something yada yada",
+        "commonUses": "common uses for the produce in recipe and other fields",
+        "interestingFact": "An interesting fact about the item",
+        "whatNotToDo": "What to avoid doing in storage or usage, like if its poisonous in large dose, or if its mixed with some everyday item"
+    }
     ]
 }

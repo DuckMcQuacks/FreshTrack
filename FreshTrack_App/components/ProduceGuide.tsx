@@ -8,7 +8,7 @@ interface Props{
 export default function ProduceGuide({ item } : Props) {
     const router = useRouter();
   return (
-    <Pressable onPress={()=> {}}>
+    <Pressable onPress={()=> {router.push(`/detailedGuide?itemId=${item.id}`);}}>
     <View style={styles.card}>
       <Text style={styles.name}>{item.name}</Text>
       <Text>Category: {item.category}</Text>
