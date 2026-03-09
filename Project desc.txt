@@ -31,3 +31,18 @@ Overall Framework (App): React Native / Next.js for website(maybe)
 Image Analysis: TensorFlow Lite / OpenCV / custom ML model (maybe maybe)
 Notifications: Local push + calendar integration
 Design: Figma
+
+Wish List:
+On click (Produce) change the produce to a menu, where the user can decide to add or remove an item, or delete the whole thing.
+    For the delete button make it press and hold, to prevent accidental clicks.
+Add a tag to show how many days before the produce goes bad.
+On press and hold (produce) navigate the user to the guide section to that specific produce.
+Add a color functionality to indicate how long that item has left, based on its maximum estimated age.
+Rework the UI to be stylistic.
+Add the option to log into google, and such places to have an account.
+    Make the data between devices of the same account sync
+    Add functionality to work with smart fridges.
+Add recipes
+    Add a button to recommend recipes based on available items
+    Add the option to manually add recipes
+        Add the option to add recipe by picture, to quick fill the manual add recipe option.
