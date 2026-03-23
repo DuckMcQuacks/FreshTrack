@@ -8,9 +8,10 @@ import StoredProduceView from '@/components/StoredProduceView'
 const Fridge = () => {
   const router = useRouter();
   const { items, add, remove, update } = useFridge();
-  const [switchedCardId, setSwitchedCardId] = React.useState<number>(0)
+  const [switchedCardId, setSwitchedCardId] = React.useState<number>(0);
+  const [updated, setUpdated] = React.useState(false);
   const renderItem: ListRenderItem<StoredProduce> = ({ item }) => (
-      <StoredProduceView item={item} switchedCardId={switchedCardId} switchCard={()=>{setSwitchedCardId(item.id)}} />)
+      <StoredProduceView item={item} switchedCardId={switchedCardId} switchCard={()=>{setSwitchedCardId(item.id)}} setUpdated={()=>{setUpdated(!updated)}} />)
   return (
     <View >
       <Text>fridge</Text>

@@ -32,12 +32,13 @@ export async function removeItem(id : number) {
 
   await saveItems(filtered);
 }
-export async function updateQuantity(id : number, quantity : number) {
+export async function updateQuantity(id : number, produceCount : number) {
   const items = await getItems();
 
   const updated = items.map((item : StoredProduce) =>
-    item.id === id ? { ...item, quantity } : item
+    item.id === id ? { ...item, produceCount } : item
   );
-
+  console.log("Update was called.")
+  console.log(updated)
   await saveItems(updated);
 }
