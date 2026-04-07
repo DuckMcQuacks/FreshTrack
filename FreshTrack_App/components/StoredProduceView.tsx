@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Button } from "react-native";
+import { View, Text, StyleSheet, Pressable, Button, Image } from "react-native";
 import { StoredProduce } from "@/typeScriptComponents/StoredProduce";
 import produceType from "../assets/produceType.json";
 import { useRouter } from 'expo-router';
+import CardStyles from '../styles/cardStyles';
 
 interface Props {
   item: StoredProduce;
@@ -28,9 +29,7 @@ export default function StoredProduceView({
 
   if (switchedCardId === item.id) {
     return (
-      <View>
-        <Text>Items left: {item.produceCount}</Text>
-        <Text>Switched id: {item.id}</Text>
+      <View style={CardStyles.card}>
         <Button title="DELETE" onPress={async () => {await onRemove(item.id);}} />
         <Button title="-1" onPress={async () => {
             if(item.produceCount <= 1){
@@ -41,17 +40,17 @@ export default function StoredProduceView({
             }
           }}
         />
-        <Button
-          title = "GUIDE"
-          onPress={()=> {router.push(`/detailedGuide?itemId=${item.produceTypeId}`);}}/>
+        <Button title = "GUIDE" onPress={()=> {router.push(`/detailedGuide?itemId=${item.produceTypeId}`);}}/>
       </View>
     );
   }
 
   return (
     <Pressable onPress={switchCard}>
-      <View style={styles.card}>
-        <Text style={styles.name}>{produceTypeRelated.name}</Text>
+      <View style={CardStyles.card}>
+        <Image style={CardStyles.image} source = {require('@/assets/images/Apple.png')} />
+        <View style={CardStyles.infoArea}>
+        <Text style={CardStyles.name}>{produceTypeRelated.name}</Text>
         <Text>Category: {produceTypeRelated.category}</Text>
         <Text>Quantity: {item.produceCount}</Text>
         <Text>Added: {item.addedAt}</Text>
@@ -59,20 +58,8 @@ export default function StoredProduceView({
         <Text>
           Days left before expiration: {(item.addedAt + produceTypeRelated.bestByDays * 24 * 60 * 60 * 1000 - Date.now()) / 1000 / 60 / 60 / 24}
         </Text>
+        </View>
       </View>
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    padding: 16,
-    marginVertical: 8,
-    backgroundColor: "#f2f2f2",
-    borderRadius: 12
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: "bold"
-  }
-});

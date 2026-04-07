@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import useFridge from '@/typeScriptComponents/UseFridge';
 import { StoredProduce } from '@/typeScriptComponents/StoredProduce';
 import StoredProduceView from '@/components/StoredProduceView';
+import GlobalStyles from "../../styles/GlobalStyles"
 
 const Fridge = () => {
   const router = useRouter();
@@ -21,21 +22,18 @@ const Fridge = () => {
   );
 
   return (
-    <View>
-      <Text>fridge</Text>
+    <View style={GlobalStyles.container}>
 
       {loading ? (
         <Text>Loading...</Text>
-      ) : (
-        <Pressable onPress={() => setSwitchedCardId(0)}>
+      ) : 
+      (
+        <Pressable style={GlobalStyles.container} onPress={() => setSwitchedCardId(0)}>
           <FlatList
             data={items}
             keyExtractor={(item) => item.id.toString()}
             renderItem={renderItem}
           />
-          <Text>
-            Padding to make sure I can click something to actually test my pressable function!
-          </Text>
         </Pressable>
       )}
 
