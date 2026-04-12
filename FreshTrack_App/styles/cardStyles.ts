@@ -20,7 +20,9 @@ const CardStyles = StyleSheet.create({
     width: "25%",
     resizeMode: "cover",
     alignSelf: "center",
-    height: "75%"
+    height: "75%",
+    padding: 10,
+    margin: 10,
   },
   name: {
     fontSize: 18,

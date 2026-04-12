@@ -39,6 +39,17 @@ Add a tag to show how many days before the produce goes bad.
 On press and hold (produce) navigate the user to the guide section to that specific produce.
 Add a color functionality to indicate how long that item has left, based on its maximum estimated age.
 Rework the UI to be stylistic.
+    Rework the UI first, make it modern,
+        Fix the card, have a border try to make it blocky, align the image and everything correctly,
+        Create a floating add button, fixed absolute position
+        Rework the alternate card side, Should include delete, modify and Guide, and a modify functionality.
+        Make the days left part countdown dynamically client side, no need to update state everytime it changes.
+        Pretty up the guide section
+            The cards are fine as they are but, add image, title, category and keep best within date.
+            On the individual guide section add, a description of the fruit, ideal storage conditions, common mistakes people make when storing it, fun facts, most common ways they are consumed, and whether they are toxic in some ways or not.
+        Pretty up the entire add produce to fridge pipeline.
+            Add an option to choose date, ideally with a fancy date picker, and quantity, even specify if its in grams or count.
+
 Add the option to log into google, and such places to have an account.
     Make the data between devices of the same account sync
     Add functionality to work with smart fridges.
