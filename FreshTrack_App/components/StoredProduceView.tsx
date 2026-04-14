@@ -4,6 +4,7 @@ import { StoredProduce } from "@/typeScriptComponents/StoredProduce";
 import produceType from "../assets/produceType.json";
 import { useRouter } from 'expo-router';
 import CardStyles from '../styles/cardStyles';
+import { useCountdown } from '@/typeScriptComponents/UseCountdown';
 
 interface Props {
   item: StoredProduce;
@@ -13,19 +14,20 @@ interface Props {
   onUpdate: (id: number, quantity: number) => Promise<void>;
 }
 
-export default function StoredProduceView({
-  item,
-  switchedCardId,
-  switchCard,
-  onRemove,
-  onUpdate
-}: Props) {
+export default function StoredProduceView({item, switchedCardId, switchCard, onRemove, onUpdate}: Props) {
   const router = useRouter();
 
   const dummyProduceType = { name: "unknown", category: "unknown", bestByDays: 0 };
-  const produceTypeRelated =
-    produceType.produce.find(produceType => produceType.id === item.produceTypeId) || dummyProduceType;
+  const produceTypeRelated = produceType.produce.find(produceType => produceType.id === item.produceTypeId) || dummyProduceType;
 
+  const addedDate : Date = new Date(item.addedAt)
+
+const expiryDate: Date = new Date(
+  item.addedAt + produceTypeRelated.bestByDays * 86400000
+);
+
+const { days, hours, minutes, seconds } = useCountdown(expiryDate);
+  const pad = (n: number) => n.toString().padStart(2, '0');
 
   if (switchedCardId === item.id) {
     return (
@@ -50,14 +52,15 @@ export default function StoredProduceView({
       <View style={CardStyles.card}>
         <Image style={CardStyles.image} source = {require('@/assets/images/Apple.png')} />
         <View style={CardStyles.infoArea}>
-        <Text style={CardStyles.name}>{produceTypeRelated.name}</Text>
-        <Text>Category: {produceTypeRelated.category}</Text>
-        <Text>Quantity: {item.produceCount}</Text>
-        <Text>Added: {item.addedAt}</Text>
-        <Text>Will expire by {item.addedAt + produceTypeRelated.bestByDays * 24 * 60 * 60 * 1000}</Text>
-        <Text>
-          Days left before expiration: {(item.addedAt + produceTypeRelated.bestByDays * 24 * 60 * 60 * 1000 - Date.now()) / 1000 / 60 / 60 / 24}
-        </Text>
+          <View style = {CardStyles.spaceBetweenRow}>
+            <Text style={CardStyles.name}>{produceTypeRelated.name}</Text>
+            <Text>{addedDate.toLocaleDateString()}</Text>
+          </View>
+          <Text>Quantity: {item.produceCount}</Text>
+          <Text>Will expire by {expiryDate.toLocaleDateString()}</Text>
+          <Text>
+            Days left before expiration: {days}d {pad(hours)}h {pad(minutes)}m
+          </Text>
         </View>
       </View>
     </Pressable>

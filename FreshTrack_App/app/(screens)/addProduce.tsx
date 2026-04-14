@@ -45,7 +45,7 @@ const AddProduce = () => {
 
     <View style={{ padding: 16 }}>
       <Text>{produce.name}</Text>
-      <Text>Added: {currentTime.getFullYear()}.{currentTime.getMonth()}.{currentTime.getDay()}    {currentTime.getHours()}:{currentTime.getMinutes()}</Text>
+      <Text>Added: {currentTime.toLocaleDateString()}    {currentTime.getHours()}:{currentTime.getMinutes()}</Text>
       <Text>Number of items:</Text>
       <TextInput 
       onChangeText = {newProduceCount=> setProduceCount(newProduceCount)}

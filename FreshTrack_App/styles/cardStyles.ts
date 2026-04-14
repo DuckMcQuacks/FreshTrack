@@ -6,15 +6,20 @@ const CardStyles = StyleSheet.create({
   card: {
     flex: 1,
     flexDirection: "row",
-    padding: 16,
+    alignItems: "center",
+    borderWidth: 2,
     backgroundColor: "EAF6FB",
     marginVertical: 12,
-    borderRadius: 12,
-    height: height *0.2,
+    marginHorizontal: 2,
+    paddingHorizontal: 6,
+    borderRadius: 4,
+    height: height *0.22,
   },
   infoArea:{
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    padding: 0,
+    margin: 0,
   },
   image: {
     width: "25%",
@@ -26,7 +31,11 @@ const CardStyles = StyleSheet.create({
   },
   name: {
     fontSize: 18,
-    fontWeight: "bold"
+    fontWeight: "bold",
+  },
+  spaceBetweenRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   }
 
 });
