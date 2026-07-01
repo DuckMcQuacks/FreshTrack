@@ -32,7 +32,7 @@ Image Analysis: TensorFlow Lite / OpenCV / custom ML model (maybe maybe)
 Notifications: Local push + calendar integration
 Design: Figma
 
-Wish List:
+Wish List(2026/07/01):
 On click (Produce) change the produce to a menu, where the user can decide to add or remove an item, or delete the whole thing.
     For the delete button make it press and hold, to prevent accidental clicks.
 Add a tag to show how many days before the produce goes bad.
