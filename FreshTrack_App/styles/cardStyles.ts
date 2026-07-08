@@ -7,7 +7,7 @@ const CardStyles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    borderWidth: 2,
+    borderWidth: 1,
     backgroundColor: "EAF6FB",
     marginVertical: 12,
     marginHorizontal: 2,
