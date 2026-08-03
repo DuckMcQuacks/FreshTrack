@@ -5,6 +5,7 @@ import produceType from "../assets/produceType.json";
 import { useRouter } from 'expo-router';
 import CardStyles from '../styles/cardStyles';
 import { useCountdown } from '@/typeScriptComponents/UseCountdown';
+import { produceImages } from '@/typeScriptComponents/produceImages';
 
 interface Props {
   item: StoredProduce;
@@ -50,7 +51,7 @@ const { days, hours, minutes, seconds } = useCountdown(expiryDate);
   return (
     <Pressable onPress={switchCard}>
       <View style={CardStyles.card}>
-        <Image style={CardStyles.image} source = {require('@/assets/images/Apple.png')} />
+        <Image style={CardStyles.image} source = {produceImages[produceTypeRelated.name]} />
         <View style={CardStyles.infoArea}>
           <View style = {CardStyles.spaceBetweenRow}>
             <Text style={CardStyles.name}>{produceTypeRelated.name}</Text>
